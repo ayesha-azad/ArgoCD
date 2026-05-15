@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: playzone
-          image: ayeshaazad/react-eks-app:latest
+          image: nginx:latest
           ports:
             - containerPort: 80
