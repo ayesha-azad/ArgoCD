@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playzone-deployment
-  namespace: playzone
+  name: react-deployment
+  namespace: react-ns
   labels:
-    app: playzone
+    app: react-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: playzone
+      app: react-app
   template:
     metadata:
       labels:
-        app: playzone
+        app: react-app
     spec:
       containers:
         - name: playzone
-          image: ayeshaazad/play-zone:latest
+          image: ayeshaazad/react-eks-app:latest
           ports:
             - containerPort: 80

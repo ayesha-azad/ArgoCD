@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: playzone
+  name: react-app
   namespace: argocd
 spec:
-  project: playzone
+  project: react-project
   destination:
-    namespace: playzone
+    namespace: react-ns
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
     targetRevision: main
-    path: playzone
+    path: react-app
   syncPolicy:
     automated:
       prune: true

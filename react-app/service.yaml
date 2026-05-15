@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: playzone-service
-  namespace: playzone
+  name: react-service
+  namespace: react-ns
 spec:
   selector:
-    app: playzone
+    app: react-app
   ports:
     - protocol: TCP
       port: 80
