@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playzone-deployment
+  namespace: playzone
+  labels:
+    app: playzone
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: playzone
+  template:
+    metadata:
+      labels:
+        app: playzone
+    spec:
+      containers:
+        - name: playzone
+          image: ayeshaazad/play-zone:latest
+          ports:
+            - containerPort: 80

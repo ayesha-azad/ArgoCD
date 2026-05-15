@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: playzone
+  namespace: argocd
+spec:
+  project: playzone
+  destination:
+    namespace: playzone
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/ayesha-azad/ArgoCD.git
+    targetRevision: main
+    path: playzone
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
