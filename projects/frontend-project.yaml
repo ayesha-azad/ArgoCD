@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: frontend-project
+  namespace: argocd
+spec:
+  description: "Frontend project for HTML and CSS"
+  sourceRepos:
+    - "https://github.com/ayesha-azad/ArgoCD.git"
+  destinations:
+    - namespace: frontend-ns
+      server: "https://kubernetes.default.svc"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
