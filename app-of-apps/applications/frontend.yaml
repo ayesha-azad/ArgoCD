@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apache-app
+  name: frontend-app
   namespace: argocd
 spec:
   project: app-of-apps-project
