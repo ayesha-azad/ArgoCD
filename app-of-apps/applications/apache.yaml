@@ -4,7 +4,7 @@ metadata:
   name: apache-app
   namespace: argocd
 spec:
-  project: apache
+  project: app-of-apps-project
   destination:
     namespace: apache
     server: https://kubernetes.default.svc

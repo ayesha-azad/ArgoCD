@@ -4,7 +4,7 @@ metadata:
   name: nginx-app
   namespace: argocd
 spec:
-  project: nginx
+  project: app-of-apps-project
   destination:
     namespace: nginx
     server: https://kubernetes.default.svc

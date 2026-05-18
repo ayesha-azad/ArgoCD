@@ -4,7 +4,7 @@ metadata:
   name: frontend-app
   namespace: argocd
 spec:
-  project: frontend-project
+  project: app-of-apps-project
   destination:
     namespace: frontend-ns
     server: https://kubernetes.default.svc

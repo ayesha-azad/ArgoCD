@@ -4,7 +4,7 @@ metadata:
   name: react-app
   namespace: argocd
 spec:
-  project: react-project
+  project: app-of-apps-project
   destination:
     namespace: react-ns
     server: https://kubernetes.default.svc
