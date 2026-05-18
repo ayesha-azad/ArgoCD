@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: app-of-apps-project
+  namespace: argocd
+spec:
+  description: "App-of-apps project"
+  sourceRepos:
+    - "https://github.com/ayesha-azad/ArgoCD.git"
+  destinations:
+    - namespace: app-of-apps-ns
+      server: "https://kubernetes.default.svc"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
