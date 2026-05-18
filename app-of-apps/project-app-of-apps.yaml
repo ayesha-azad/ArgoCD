@@ -8,7 +8,15 @@ spec:
   sourceRepos:
     - "https://github.com/ayesha-azad/ArgoCD.git"
   destinations:
-    - namespace: argocd
+    - namespace: app-of-apps-project
+      server: "https://kubernetes.default.svc"
+    - namespace: frontend-ns
+      server: "https://kubernetes.default.svc"
+    - namespace: apache
+      server: "https://kubernetes.default.svc"
+    - namespace: nginx
+      server: "https://kubernetes.default.svc"
+    - namespace: react-ns
       server: "https://kubernetes.default.svc"
   clusterResourceWhitelist:
     - group: "*"
