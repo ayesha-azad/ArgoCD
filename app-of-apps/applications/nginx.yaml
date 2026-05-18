@@ -4,9 +4,9 @@ metadata:
   name: nginx-app
   namespace: argocd
 spec:
-  project: app-of-apps-project
+  project: nginx
   destination:
-    namespace: app-of-apps-ns
+    namespace: nginx
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git

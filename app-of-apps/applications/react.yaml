@@ -4,9 +4,9 @@ metadata:
   name: react-app
   namespace: argocd
 spec:
-  project: app-of-apps-project
+  project: react-project
   destination:
-    namespace: app-of-apps-ns
+    namespace: react-ns
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git

@@ -4,9 +4,9 @@ metadata:
   name: apache-app
   namespace: argocd
 spec:
-  project: app-of-apps-project
+  project: apache
   destination:
-    namespace: app-of-apps-ns
+    namespace: apache
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git

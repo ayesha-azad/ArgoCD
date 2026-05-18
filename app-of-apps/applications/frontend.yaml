@@ -4,9 +4,9 @@ metadata:
   name: frontend-app
   namespace: argocd
 spec:
-  project: app-of-apps-project
+  project: frontend-project
   destination:
-    namespace: app-of-apps-ns
+    namespace: frontend-ns
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
