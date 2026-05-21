@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-showcase-deployment
+  namespace: devops-showcase-staging-ns
+  labels:
+    app: devops-showcase
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devops-showcase
+  template:
+    metadata:
+      labels:
+        app: devops-showcase
+    spec:
+      containers:
+        - name: devops-showcase
+          image: ayeshaazad/devops-showcase:latest
+          ports:
+            - containerPort: 80

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devops-showcase-staging-app
+  namespace: argocd
+spec:
+  project: devops-showcase-staging-project
+  destination:
+    namespace: devops-showcase-staging-ns
+    server: "https://staging-kind-cluster-control-plane:6444"
+  source:
+    repoURL: https://github.com/ayesha-azad/ArgoCD.git
+    targetRevision: main
+    path: devops-showcase
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

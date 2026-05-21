@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: devops-showcase-staging-project
+  namespace: argocd
+spec:
+  description: "Staging environment project"
+  sourceRepos:
+    - "https://github.com/ayesha-azad/ArgoCD.git"
+  destinations:
+    - namespace: devops-showcase-staging-ns
+      server: "https://staging-kind-cluster-control-plane:6444"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
