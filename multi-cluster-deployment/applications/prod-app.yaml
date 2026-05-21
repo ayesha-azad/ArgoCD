@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cv-template-prod-app
+  namespace: argocd
+spec:
+  project: cv-template-prod-project
+  destination:
+    namespace: cv-template-prod-ns
+    server: "https://prod-kind-cluster-control-plane:6443"
+  source:
+    repoURL: https://github.com/ayesha-azad/ArgoCD.git
+    targetRevision: main
+    path: cv-template
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-template-deployment
+  namespace: cv-template-prod-ns
+  labels:
+    app: cv-template
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cv-template
+  template:
+    metadata:
+      labels:
+        app: cv-template
+    spec:
+      containers:
+        - name: cv-template
+          image: ayeshaazad/cv-template:latest
+          ports:
+            - containerPort: 80
