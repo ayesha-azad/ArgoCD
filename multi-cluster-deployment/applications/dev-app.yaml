@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
     targetRevision: main
-    path: animated-website-dev
+    path: animated-website
   syncPolicy:
     automated:
       prune: true
