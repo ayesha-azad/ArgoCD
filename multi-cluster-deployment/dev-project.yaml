@@ -9,7 +9,7 @@ spec:
     - "https://github.com/ayesha-azad/ArgoCD.git"
   destinations:
     - namespace: animated-website-dev-ns
-      server: "https://192.168.1.5:6443"
+      server: "https://dev-kind-cluster-control-plane:6443"
   clusterResourceWhitelist:
     - group: "*"
       kind: "*"
