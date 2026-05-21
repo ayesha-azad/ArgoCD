@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: animated-website-deployment
+  namespace: animated-website-dev-ns
+  labels:
+    app: animated-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: animated-website
+  template:
+    metadata:
+      labels:
+        app: animated-website
+    spec:
+      containers:
+        - name: animated-website
+          image: ayeshaazad/animated-modern-website:latest
+          ports:
+            - containerPort: 80

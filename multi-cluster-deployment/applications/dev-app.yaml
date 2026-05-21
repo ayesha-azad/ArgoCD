@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: animated-website-dev-app
+  namespace: argocd
+spec:
+  project: dev-animated-website-project
+  destination:
+    namespace: animated-website-dev-ns
+    server: "https://192.168.1.5:6443"
+  source:
+    repoURL: https://github.com/ayesha-azad/ArgoCD.git
+    targetRevision: main
+    path: animated-website-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

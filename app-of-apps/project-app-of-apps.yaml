@@ -8,7 +8,7 @@ spec:
   sourceRepos:
     - "https://github.com/ayesha-azad/ArgoCD.git"
   destinations:
-    - namespace: app-of-apps-project
+    - namespace: app-of-apps-ns
       server: "https://kubernetes.default.svc"
     - namespace: frontend-ns
       server: "https://kubernetes.default.svc"

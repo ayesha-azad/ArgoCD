@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: dev-animated-website-project
+  namespace: argocd
+spec:
+  description: "Dev environment project"
+  sourceRepos:
+    - "https://github.com/ayesha-azad/ArgoCD.git"
+  destinations:
+    - namespace: animated-website-dev-ns
+      server: "https://192.168.1.5:6443"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"

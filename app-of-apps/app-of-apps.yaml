@@ -6,7 +6,7 @@ metadata:
 spec:
   project: app-of-apps-project
   destination:
-    namespace: argocd
+    namespace: app-of-apps-ns
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
@@ -16,3 +16,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
