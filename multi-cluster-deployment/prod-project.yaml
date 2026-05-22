@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: devops-showcase-prod-project
+  name: cv-template-prod-project
   namespace: argocd
 spec:
   description: "Production environment project"
   sourceRepos:
     - "https://github.com/ayesha-azad/ArgoCD.git"
   destinations:
-    - namespace: devops-showcase-prod-ns
+    - namespace: cv-template-prod-ns
       server: "https://prod-kind-cluster-control-plane:6443"
   clusterResourceWhitelist:
     - group: "*"
