@@ -7,7 +7,7 @@ spec:
   project: cv-template-prod-project
   destination:
     namespace: cv-template-prod-ns
-    server: "https://prod-kind-cluster-control-plane:6443"
+    server: "https://prod-cluster-control-plane:6443"
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
     targetRevision: main

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: cv-template-prod-project
+  name: devops-showcase-prod-project
   namespace: argocd
 spec:
   description: "Production environment project"

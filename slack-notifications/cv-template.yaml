@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cv-template-app
+  namespace: argocd
+  annotations:
+    # FIXED: Added proper subscription annotation
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd-notifications
+    notifications.argoproj.io/subscribe.on-deleted.slack: argocd-notifications
+    notifications.argoproj.io/subscribe.on-deployed.slack: argocd-notifications
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd-notifications
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: argocd-notifications
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd-notifications
+spec:
+  project: cv-template-project
+  destination:
+    namespace: cv-template-prod-ns
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/ayesha-azad/ArgoCD.git
+    targetRevision: main
+    path: cv-template
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

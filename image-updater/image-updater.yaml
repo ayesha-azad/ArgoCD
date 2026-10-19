@@ -1,0 +1,22 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: animated-website-dev-ns
+  namespace: argocd
+spec:
+  writeBackConfig:
+    method: "git:secret:argocd/animated-website-dev-ns"
+    gitConfig:
+      branch: "main"
+      writeBackTarget: "kustomization:."
+  commonUpdateSettings:
+    updateStrategy: "semver"
+    allowTags: "regexp:^[0-9]+\\.[0-9]+\\.[0-9]+$"
+  applicationRefs:
+    - namePattern: "animated-website-dev-ns"
+      images:
+        - alias: "animated-website"
+          imageName: "ayeshaazad/animated-modern-website"
+          manifestTargets:
+            kustomize:
+              name: "ayeshaazad/animated-modern-website"

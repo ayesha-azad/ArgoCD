@@ -7,7 +7,7 @@ spec:
   project: devops-showcase-staging-project
   destination:
     namespace: devops-showcase-staging-ns
-    server: "https://staging-kind-cluster-control-plane:6443"
+    server: "https://staging-cluster-control-plane:6443"
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
     targetRevision: main

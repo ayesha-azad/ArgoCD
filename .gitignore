@@ -1,0 +1,5 @@
+# OS files
+.DS_Store
+
+# Git credentials & secrets
+image-updater/image-updater-git-creds.yaml

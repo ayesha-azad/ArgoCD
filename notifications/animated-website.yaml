@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: animated-website
+  namespace: argocd
+spec:
+  project: animated-website-project
+  destination:
+    namespace: animated-website-dev-ns
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/ayesha-azad/ArgoCD.git
+    targetRevision: main
+    path: animated-website
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

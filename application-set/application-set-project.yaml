@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: application-set-project
+  namespace: argocd
+spec:
+  description: "Project for ApplicationSet"
+  sourceRepos:
+    - "https://github.com/ayesha-azad/ArgoCD.git"
+  destinations:
+    - namespace: animated-website-dev-ns
+      server: "https://dev-cluster-control-plane:6443"
+    - namespace: devops-showcase-staging-ns
+      server: "https://staging-cluster-control-plane:6443"
+    - namespace: cv-template-prod-ns
+      server: "https://prod-cluster-control-plane:6443"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"

@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: application-set
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - list:
+        elements:
+          - app: animated-website
+            namespace: animated-website-dev-ns
+            repoPath: animated-website
+            description: "Animated website"
+            server: "https://dev-cluster-control-plane:6443"
+
+          - app: cv-template
+            namespace: cv-template-prod-ns
+            repoPath: cv-template
+            description: "CV template"
+            server: "https://prod-cluster-control-plane:6443"
+
+          - app: devops-showcase
+            namespace: devops-showcase-staging-ns
+            repoPath: devops-showcase
+            description: "Devops showcase"
+            server: "https://staging-cluster-control-plane:6443"
+
+  template:
+    metadata:
+      name: "{{.app}}"
+      labels:
+        app.kubernetes.io/name: "{{.app}}"
+        app.kubernetes.io/part-of: microservices-platform
+    spec:
+      project: application-set-project
+      source:
+        repoURL: https://github.com/ayesha-azad/ArgoCD.git
+        targetRevision: main
+        path: "{{.repoPath}}"
+      destination:
+        server: "{{.server}}"
+        namespace: "{{.namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true

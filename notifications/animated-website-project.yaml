@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: animated-website-project
+  namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-health-degraded.email: "ayeshaazad8698@gmail.com"
+    notifications.argoproj.io/subscribe.on-deployed.email: "ayeshaazad8698@gmail.com"
+spec:
+  description: "Animated website project"
+  sourceRepos:
+    - "https://github.com/ayesha-azad/ArgoCD.git"
+  destinations:
+    - namespace: animated-website-dev-ns
+      server: "https://kubernetes.default.svc"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
