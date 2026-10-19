@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: frontend-ns
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ayeshaazad/ajk-gw-static-website:x
+    argocd-image-updater.argoproj.io/ajk-gw-static-website.update-strategy: semver
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   project: frontend-project
   source:
