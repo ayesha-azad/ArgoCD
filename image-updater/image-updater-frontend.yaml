@@ -8,7 +8,7 @@ spec:
     method: "git:secret:argocd/frontend-ns"
     gitConfig:
       branch: "main"
-      writeBackTarget: "kustomization:frontend-ns"
+      writeBackTarget: "kustomization:."
   commonUpdateSettings:
     updateStrategy: "semver"
     allowTags: "regexp:^[0-9]+\\.[0-9]+\\.[0-9]+$"
