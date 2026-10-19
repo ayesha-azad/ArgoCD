@@ -8,4 +8,3 @@ resources:
 
 images:
   - name: ayeshaazad/ajk-gw-static-website
-    newTag: "1.1.1"
