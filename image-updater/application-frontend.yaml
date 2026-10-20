@@ -4,9 +4,13 @@ metadata:
   name: frontend-ns
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: ayeshaazad/ajk-gw-static-website:x
-    argocd-image-updater.argoproj.io/ajk-gw-static-website.update-strategy: semver
-    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: frontend=ayeshaazad/ajk-gw-static-website
+    argocd-image-updater.argoproj.io/frontend.update-strategy: semver
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/frontend-secret
+    argocd-image-updater.argoproj.io/frontend.allow-tags: regexp:^v[0-9]+\.[0-9]+\.[0-9]+$
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+
 spec:
   project: frontend-project
   source:
