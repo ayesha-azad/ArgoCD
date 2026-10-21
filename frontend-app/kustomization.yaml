@@ -9,4 +9,4 @@ resources:
   - service.yaml
 images:
   - name: ayeshaazad/ajk-gw-static-website
-    newTag: v1.4.1
+    newTag: v1.8.1
