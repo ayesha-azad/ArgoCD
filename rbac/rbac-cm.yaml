@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.csv: |
+    # Built-in roles
+    p, role:readonly, applications, get, */*, allow
+    p, role:readonly, applications, sync, */*, deny
+    p, role:admin, applications, *, */*, allow
+
+    # Custom roles
+    p, role:developer, applications, get, myproject/*, allow
+    p, role:developer, applications, sync, myproject/*, allow
+
+    # Bind users to roles
+    g, bisma, role:readonly
+    g, umer, role:admin
+    g, my-org:dev-team, role:developer  # SSO group
+
+  # Default role for authenticated users
+  policy.default: role:readonly
+
+  # Control which scopes to examine for RBAC
+  scopes: "[groups, email]"

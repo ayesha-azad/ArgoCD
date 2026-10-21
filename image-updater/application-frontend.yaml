@@ -15,7 +15,6 @@ spec:
   project: frontend-project
   source:
     repoURL: https://github.com/ayesha-azad/ArgoCD.git
-    targetRevision: HEAD
     path: frontend-app
   destination:
     namespace: frontend-ns

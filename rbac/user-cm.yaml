@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm # standard label for ArgoCD config maps, used for selection by ArgoCD components
+    app.kubernetes.io/part-of: argocd # It is useful to identify all resources that are part of ArgoCD
+data:
+  # Add local users with capabilities
+  accounts.bisma: apiKey, login # Can generate tokens and login to UI
+  accounts.umer: login # Can only login to UI
+  accounts.summaiya: apiKey # Can only generate tokens (for automation)
